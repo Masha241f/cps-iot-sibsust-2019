@@ -8,36 +8,57 @@
 
 <body>
     
-<button id="buttonOn1" onClick="on1()">On 1</button>
-<button id="buttonOff1" onClick="off1()">Off 1</button>
+<button id="buttonOn1" style="width: 80px; background-color: red; color: white;" onClick="on1()">On 1</button>
+<button id="buttonOff1" style="width: 80px; background-color: #cc0000; color: white;" onClick="off1()">Off 1</button>
 
 <br>
 
-<button id="buttonOn2" onClick="on2()">On 2</button>
-<button id="buttonOff2" onClick="off2()">Off 2</button>
+<button id="buttonOn2" style="width: 80px; background-color: #dddd00; color: white;" onClick="on2()">On 2</button>
+<button id="buttonOff2" style="width: 80px; background-color: #cccc00; color: white;" onClick="off2()">Off 2</button>
+
+<br>
+
+<button id="buttonOn3" style="width: 80px; background-color: green; color: white;" onClick="on3()">On 3</button> 
+<button id="buttonOff3" style="width: 80px; background-color: #006600; color: white;" onClick="off3()">Off 3</button>
+
+<br>
+
+<button id="buttonOn4" style="width: 80px; background-color: blue; color: white;" onClick="on4()">On 4</button>
+<button id="buttonOff4" style="width: 80px; background-color: #0000cc; color: white;" onClick="off4()">Off 4</button>
+
 
 <script type="text/javascript">
 let ws = new WebSocket("ws://172.16.22.53:8888"); // // create socket - connect to it
 
 function on1() { // when button "on" is pressed we
-
     ws.send("1"); // send number 1 via websocket
-
 }
-
-
 function off1() { // when button "off" is pressed we
-
     ws.send("0"); // send number 0 via websocket
-
 }
+
 function on2() { // when button "on" is pressed we
     ws.send("3"); // send number 3 via websocket
 }
-
 function off2() { // when button "off" is pressed we
     ws.send("2"); // send number 2 via websocket
 }
+
+function on3() { // when button "on" is pressed we
+    ws.send("5"); // send number 5 via websocket
+}
+function off3() { // when button "off" is pressed we
+    ws.send("4"); // send number 4 via websocket
+}
+
+function on4() { // when button "on" is pressed we
+    ws.send("7"); // send number 7 via websocket
+}
+function off4() { // when button "off" is pressed we
+    ws.send("6"); // send number 6 via websocket
+}
+
+
 </script>
 
 </body>    

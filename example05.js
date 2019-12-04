@@ -8,6 +8,9 @@ var board = new firmata.Board("/dev/ttyACM0", function(){ // ACM Abstract Contro
     console.log("Connecting to Arduino");
     console.log("Activation of Pin 13");
     board.pinMode(13, board.MODES.OUTPUT); // Configures the specified pin to behave either as an input or an output.
+    board.pinMode(8, board.MODES.OUTPUT);
+    board.pinMode(10, board.MODES.OUTPUT);
+    board.pinMode(11, board.MODES.OUTPUT);
 });
 
 function handler(req, res) {
@@ -27,6 +30,7 @@ function handler(req, res) {
 http.listen(8080); // server will listen on port 8080, html page will be served to client
 wss.on('connection', function (ws) { // start of wss code
     ws.on("message", function (value) {
+       
        if(value == "1") {
            board.digitalWrite(13, board.HIGH); // write high on pin 13
        }
@@ -38,6 +42,18 @@ wss.on('connection', function (ws) { // start of wss code
        }
        else if(value == "2") {
            board.digitalWrite(8, board.LOW); // write low on pin 13
-       }         
+       }    
+       if(value == "5") {
+           board.digitalWrite(10, board.HIGH); // write high on pin 13
+       }
+       else if(value == "4") {
+           board.digitalWrite(10, board.LOW); // write low on pin 13
+       } 
+        else if(value == "7") {
+           board.digitalWrite(11, board.HIGH);// write low on pin 13
+       }
+       else if(value == "6") {
+           board.digitalWrite(11, board.LOW); // write low on pin 13
+       }    
     });
 }); // end of wss code
